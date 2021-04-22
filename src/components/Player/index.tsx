@@ -1,6 +1,12 @@
+import { useContext } from 'react';
+import { PlayerContext } from '../../contexts/PlayerContext';
 import styles from './styles.module.scss';
 
 export function Player(){
+    const {episodeList, currentEpisodeIndex} = useContext(PlayerContext);
+
+    const episode = episodeList[currentEpisodeIndex];
+
     return(
         <div className={styles.playerContainer}>
             <header>
