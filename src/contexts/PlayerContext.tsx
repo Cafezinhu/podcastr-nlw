@@ -39,12 +39,16 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps) 
     const [isShuffling, setIsShuffling] = useState(false);
 
     const play = (episode: Episode) => {
+        console.log(episode);
+        
         setEpisodeList([episode]);
         setCurrentEpisodeIndex(0);
         setIsPlaying(true);
     }
 
     const playList = (list: Episode[], index: number) => {
+        console.log(list[index]);
+        
         setEpisodeList(list);
         setCurrentEpisodeIndex(index);
         setIsPlaying(true);

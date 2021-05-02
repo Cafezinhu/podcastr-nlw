@@ -88,7 +88,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       members,
       duration: Number(file.duration),
       durationAsString: convertDurationToTimeString(Number(file.duration)),
-      publishedAt: format(parseISO(published_at), 'd MMM yy', {locale: ptBR})
+      publishedAt: format(parseISO(published_at), 'd MMM yy', {locale: ptBR}),
+      url: file.url
     };
     
     return{
