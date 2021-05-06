@@ -81,9 +81,10 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
               <th></th>
               <th>Podcast</th>
               <th>Integrantes</th>
-              <th>Data</th>
-              <th>Duração</th>
-              <th></th>
+              <th>
+                <span>Data</span>
+                <span>Duração</span>
+              </th>
             </thead>
             <tbody>
               {allEpisodes.map((episode, index) => {
