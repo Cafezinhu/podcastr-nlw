@@ -32,7 +32,12 @@ type EpisodeProps = {
 }
 
 export default function Episode({episode}: EpisodeProps){
-    const { play } = usePlayer();
+    const { play, isShuffling, toggleShuffle } = usePlayer();
+    const tocarEpisodio = () => {
+        play(episode);
+        if(isShuffling) toggleShuffle();
+
+    }
     return(
         <div className={styles.episode}>
             <Head>
@@ -50,7 +55,7 @@ export default function Episode({episode}: EpisodeProps){
                     src={episode.thumbnail} 
                     objectFit="cover" 
                 />
-                <button type='button' onClick={() => play(episode)}>
+                <button type='button' onClick={tocarEpisodio}>
                     <img src="/play.svg" alt="Tocar episódio"/>
                 </button>
             </div>
