@@ -23,6 +23,16 @@
             opacity: 0.5;
         }
     }
+    @media (orientation: portrait) {
+        // position: fixed;
+        bottom: 0;
+        height: auto;
+        padding: 1rem;
+        width: 100%;
+        header {
+            display: none;
+        }
+    }
 }
 
 .emptyPlayer {
@@ -36,6 +46,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (orientation: portrait) {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        height: 3rem;
+        margin-bottom: 1rem;
+    }
 }
 
 .currentEpisode {
@@ -54,6 +71,20 @@
         margin-top: 1rem;
         opacity: 0.6;
         line-height: 1.5rem;
+    }
+    @media (orientation: portrait) {
+        display: flex;
+        height: 4rem;
+        img {
+            display: none !important;
+        }
+        strong {
+            margin-top: 0;
+            font-size: 1rem;
+        }
+        span {
+            display: none;
+        }
     }
 }
 
@@ -111,5 +142,8 @@
         &.isActive:hover {
             filter: invert(33%) sepia(95%) saturate(3) hue-rotate(100deg) brightness(0.8) contrast(97%);
         }
+    }
+    @media (orientation: portrait) {
+        margin-top: 1rem;
     }
 }

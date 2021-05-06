@@ -45,7 +45,6 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
       </Head>
       <section className={styles.latestEpisodes}>
         <h2>Últimos lançamentos</h2>
-
         <ul>
           {latestEpisodes.map((episode, index) => {
             return(
@@ -70,6 +69,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
               </li>
             );
           })}
+          <li className={styles.latestEpisodesSpacer} />
         </ul>
       </section>
 
@@ -89,7 +89,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
               {allEpisodes.map((episode, index) => {
                 return(
                   <tr key={episode.id}>
-                    <td style={{ width: 72 }}>
+                    <td className={styles.tdImage}>
                       <Image 
                         width={120}
                         height={120}
@@ -104,13 +104,17 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                       </Link>
                     </td>
                     <td>{episode.members}</td>
-                    <td style={{ width: 100 }}>{episode.publishedAt}</td>
-                    <td>{episode.durationAsString}</td>
-                    <td>
-                      <button type="button" onClick={() => playList(episodeList, index + latestEpisodes.length)}>
-                        <img src="/play-green.svg" alt="Tocar episódio"/>
-                      </button>
-                    </td>
+                    <div className={styles.timeAndPlay}>
+                      <div className={styles.timeInfo}>
+                        <td style={{ width: 100 }}>{episode.publishedAt}</td>
+                        <td>{episode.durationAsString}</td>
+                      </div>
+                      <td>
+                        <button type="button" onClick={() => playList(episodeList, index + latestEpisodes.length)}>
+                          <img src="/play-green.svg" alt="Tocar episódio"/>
+                        </button>
+                      </td>
+                    </div>
                   </tr>
                 );
               })}

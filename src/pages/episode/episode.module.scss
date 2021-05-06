@@ -69,4 +69,8 @@
             margin: 1.5rem 0;
         }
     }
+    @media (orientation: portrait) {
+        height: calc(100vh - 18.6rem);
+        overflow: scroll;
+    }
 }

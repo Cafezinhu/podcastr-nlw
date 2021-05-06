@@ -3,4 +3,7 @@
     main {
         flex: 1;
     }
+    @media (orientation: portrait) {
+        flex-direction: column;
+    }
 }

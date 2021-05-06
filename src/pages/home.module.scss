@@ -6,13 +6,16 @@
         margin-top: 3rem;
         margin-bottom: 1.5rem;
     }
+    @media (orientation: portrait) {
+        height: calc(100vh - 18.6rem);
+    }
 }
 
 .latestEpisodes {
     ul {
         list-style: none;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
         li {
             background: var(--white);
@@ -91,6 +94,19 @@
                 }
             }
         }
+        @media (orientation: portrait) {
+            position: relative;
+            width: 100vw;
+            overflow: scroll;
+            transform: translate(-4rem);
+            padding-left: 4rem;
+            .latestEpisodesSpacer {
+                width: 2.5rem;
+                background: none;
+                padding: 0;
+                border: none;
+            }
+        }
     }
 }
 
@@ -141,6 +157,45 @@
                 }
                 &:hover {
                     filter: brightness(0.95);
+                }
+            }
+        }
+        @media (orientation: portrait) {
+            thead {
+                display: none;
+            }
+            tr {
+                display: flex;
+                flex-direction: column;
+                border-bottom: 1px solid var(--gray-100);
+                td {
+                    border-bottom: none;
+                    &.tdImage {
+                        display: none !important;
+                        padding: 0 !important;
+                    }
+                }
+                .timeAndPlay {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-bottom: 1rem;
+                    td {
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        button {
+                            width: 3rem;
+                            height: 3rem;
+                            img {
+                                width: 2rem;
+                                height: 2rem;
+                            }
+                        }
+                    }
+                    .timeInfo {
+                        display: flex;
+                        flex-direction: column;
+                    }
                 }
             }
         }

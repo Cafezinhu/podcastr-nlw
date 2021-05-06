@@ -14,4 +14,10 @@
         margin-left: auto;
         text-transform: capitalize;
     }
+    @media(orientation: portrait) {
+        padding: 2rem 2rem;
+        p {
+            display: none;
+        }
+    }
 }
