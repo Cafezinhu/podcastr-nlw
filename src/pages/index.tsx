@@ -9,6 +9,7 @@ import { convertDurationToTimeString } from '../utils/convertDurationToTimeStrin
 import styles from './home.module.scss';
 import { usePlayer } from '../contexts/PlayerContext';
 import Head from 'next/head';
+import jsonFile from '../../server.json';
 
 type Episode = {
   id: string;
@@ -127,15 +128,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get('episodes', {
-    params: {
-      _limit: 12,
-      _sort: 'published_at',
-      _order: 'desc'
-    }
-  });
-
-  const episodes = data.map((episode) => {
+    const episodes = jsonFile.episodes.map((episode) => {
     const { id, description, file, members, published_at, thumbnail, title} = episode;
 
     return {

@@ -8,6 +8,8 @@ import { convertDurationToTimeString } from '../../utils/convertDurationToTimeSt
 import styles from './episode.module.scss';
 import { usePlayer } from '../../contexts/PlayerContext';
 import Head from 'next/head';
+import jsonFile from '../../../server.json';
+import { Episode as EpisodeType } from '../../utils/types/Episode';
 
 type Episode = {
     id: string;
@@ -81,9 +83,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const {slug} = ctx.params;
-    const {data} = await api.get(`/episodes/${slug}`);
+    // const {data} = await api.get(`/episodes/${slug}`);
+    const episodes: EpisodeType[] = jsonFile.episodes;
+    let selectedEpisode: EpisodeType;
+    for (const episode of episodes) {
+        if(episode.id == slug){
+            selectedEpisode = episode;
+            break;
+        }
+    }
 
-    const { id, description, file, members, published_at, thumbnail, title} = data;
+    const { id, description, file, members, published_at, thumbnail, title} = selectedEpisode;
 
     const episode =  {
       id,
