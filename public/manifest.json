@@ -2,9 +2,8 @@
     "name": "Podcastr",
     "short_name": "Podcastr",
     "icons": [{
-        "src": "/logo.svg",
-        "sizes": "any",
-        "type": "image/png",
+        "src": "manifesticon.png",
+        "sizes": "512x512",
         "purpose": "any maskable"
     }],
     "theme_color": "#FFFFFF",
